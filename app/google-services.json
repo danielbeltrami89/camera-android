@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "6181374170",
+    "firebase_url": "https://teste-8a5c0.firebaseio.com",
+    "project_id": "teste-8a5c0",
+    "storage_bucket": "teste-8a5c0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:6181374170:android:c23fb3595eac1934",
+        "android_client_info": {
+          "package_name": "br.com.labo.camera"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "6181374170-qpn0iq4eet209v5jmj5cqjg3v2716abl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.labo.camera",
+            "certificate_hash": "a8d134169513efa5ea931285b4eb8d632762f304"
+          }
+        },
+        {
+          "client_id": "6181374170-fnm9oi8lrdsusjqt5cgdtj1j5hsntno5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB8TYf4HgltoXZELjgFXdiKsH4Rfps4z_0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "6181374170-fnm9oi8lrdsusjqt5cgdtj1j5hsntno5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
