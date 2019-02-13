@@ -1,5 +1,6 @@
 package br.com.labo.cameracustom;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.media.MediaScannerConnection;
 import android.os.Bundle;
@@ -174,9 +175,9 @@ public class PictureActivity extends AppCompatActivity implements View.OnClickLi
         if (i1 == R.id.btnFechar) {
             CameraActivity.bitmaps.clear();
             CameraActivity.bitmapImg = null;
-
             CameraActivity.resetaview = true;
-            onBackPressed();
+
+            onExit();
 
 
         } else if (i1 == R.id.btnMais) {
@@ -190,6 +191,30 @@ public class PictureActivity extends AppCompatActivity implements View.OnClickLi
 
             Toast.makeText(this, "Imagem salva!", Toast.LENGTH_SHORT).show();
 
+            voltaTelas();
+
         }
+    }
+
+    public void onExit () {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        PictureActivity.this.finish();
+        Log.d("Fechar tudo", "onExit: ");
+    }
+
+    public void voltaTelas() {
+
+        String origem = "CameraActivity";
+
+        Intent myIntent = null;
+        myIntent = new Intent(this, CameraActivity.class);
+        Log.d("OK", "voltaTelas: ");
+        myIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);// clear the backstack
+        startActivity(myIntent);
+        finish();
+        return;
     }
 }

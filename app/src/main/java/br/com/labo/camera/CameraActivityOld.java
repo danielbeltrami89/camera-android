@@ -21,7 +21,7 @@ import android.widget.Toast;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class CameraActivity extends AppCompatActivity {
+public class CameraActivityOld extends AppCompatActivity {
 
     private static final int SELECT_PICTURE = 1;
 
@@ -47,7 +47,7 @@ public class CameraActivity extends AppCompatActivity {
         cameraPreviewLayout = findViewById(R.id.cPreview);
 
         camera = checkDeviceCamera();
-        mImageSurfaceView = new CameraPreview(CameraActivity.this, camera);
+        mImageSurfaceView = new CameraPreview(CameraActivityOld.this, camera);
         cameraPreviewLayout.addView(mImageSurfaceView);
 
         ultimaImg = findViewById(R.id.ultimaImg);
@@ -76,7 +76,7 @@ public class CameraActivity extends AppCompatActivity {
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(CameraActivity.this,PictureActivity.class));
+                startActivity(new Intent(CameraActivityOld.this,PictureActivity.class));
             }
         });
 
@@ -128,14 +128,14 @@ public class CameraActivity extends AppCompatActivity {
         public void onPictureTaken(byte[] data, Camera camera) {
             Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
             if(bitmap==null){
-                Toast.makeText(CameraActivity.this, "Captured image is empty", Toast.LENGTH_LONG).show();
+                Toast.makeText(CameraActivityOld.this, "Captured image is empty", Toast.LENGTH_LONG).show();
                 return;
             }
 
             bitmapImg = BitmapFactory.decodeByteArray(data, 0, data.length);
             bitmapImg = RotateBitmap(bitmapImg,90);
             bitmaps.add(bitmapImg);
-            startActivity(new Intent(CameraActivity.this,PictureActivity.class));
+            startActivity(new Intent(CameraActivityOld.this,PictureActivity.class));
         }
     };
 
@@ -151,7 +151,7 @@ public class CameraActivity extends AppCompatActivity {
                 if (data != null) {
                     try {
                         bitmapImg = MediaStore.Images.Media.getBitmap(this.getContentResolver(), data.getData());
-                        Intent intent = new Intent(CameraActivity.this,PictureActivity.class);
+                        Intent intent = new Intent(CameraActivityOld.this,PictureActivity.class);
                         startActivity(intent);
                     } catch (IOException e) {
                         e.printStackTrace();

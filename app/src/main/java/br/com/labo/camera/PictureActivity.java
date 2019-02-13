@@ -45,9 +45,9 @@ public class PictureActivity extends AppCompatActivity implements View.OnClickLi
         btnok.setOnClickListener(this);
 
         imageView = findViewById(R.id.img);
-        imageView.setImageBitmap(CameraActivity.bitmapImg);
+        imageView.setImageBitmap(CameraActivityOld.bitmapImg);
 
-        if (CameraActivity.bitmaps.size() > 1) {
+        if (CameraActivityOld.bitmaps.size() > 1) {
             exibeImagensGaleria(posicaoClick, ultima);
         }
 
@@ -57,18 +57,18 @@ public class PictureActivity extends AppCompatActivity implements View.OnClickLi
 
             layout.setVisibility(View.VISIBLE);
 
-            if (CameraActivity.bitmaps.size() == 1) {
+            if (CameraActivityOld.bitmaps.size() == 1) {
                 btnApaga.setVisibility(View.GONE);
             } else {
                 btnApaga.setVisibility(View.VISIBLE);
             }
 
-            for (int i = 0; i < CameraActivity.bitmaps.size(); i++) {
+            for (int i = 0; i < CameraActivityOld.bitmaps.size(); i++) {
                 imageViewG = new ImageView(this);
                 imageViewG.setId(i);
 
                 imageViewG.setPadding(5, 5, 5, 5);
-                imageViewG.setImageBitmap(CameraActivity.bitmaps.get(i));
+                imageViewG.setImageBitmap(CameraActivityOld.bitmaps.get(i));
                 imageViewG.setAdjustViewBounds(true);
                 imageViewG.setScaleType(ImageView.ScaleType.FIT_CENTER);
                 imageViewG.setCropToPadding(false);
@@ -81,7 +81,7 @@ public class PictureActivity extends AppCompatActivity implements View.OnClickLi
                     imageViewG.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            imageView.setImageBitmap(CameraActivity.bitmaps.get(finalI));
+                            imageView.setImageBitmap(CameraActivityOld.bitmaps.get(finalI));
                             posicaoClick = finalI;
                             layout.removeAllViews();
                             exibeImagensGaleria(posicaoClick, ultima);
@@ -94,7 +94,7 @@ public class PictureActivity extends AppCompatActivity implements View.OnClickLi
                     @Override
                     public void onClick(View view) {
                         if (posicao == -1)
-                            removeImagem(CameraActivity.bitmaps.size()-1);
+                            removeImagem(CameraActivityOld.bitmaps.size()-1);
                         else
                             removeImagem(posicaoClick);
                     }
@@ -114,18 +114,18 @@ public class PictureActivity extends AppCompatActivity implements View.OnClickLi
     }
 
     public void removeImagem(int idImagem){
-        CameraActivity.bitmaps.remove(idImagem);
+        CameraActivityOld.bitmaps.remove(idImagem);
         layout.removeViewAt(idImagem);
 
-        if (CameraActivity.bitmaps.size() == 1) {
-            imageView.setImageBitmap(CameraActivity.bitmaps.get(0));
+        if (CameraActivityOld.bitmaps.size() == 1) {
+            imageView.setImageBitmap(CameraActivityOld.bitmaps.get(0));
 
             layout.removeAllViews();
             exibeImagensGaleria(-1, true);
             ultima = true;
 
-        } else if (CameraActivity.bitmaps.size() > 1) {
-            imageView.setImageBitmap(CameraActivity.bitmaps.get(0));
+        } else if (CameraActivityOld.bitmaps.size() > 1) {
+            imageView.setImageBitmap(CameraActivityOld.bitmaps.get(0));
 
             layout.removeAllViews();
             exibeImagensGaleria(-1, ultima);
@@ -173,23 +173,23 @@ public class PictureActivity extends AppCompatActivity implements View.OnClickLi
         switch(view.getId()) {
             case R.id.btnFechar:
 
-                CameraActivity.bitmaps.clear();
-                CameraActivity.bitmapImg = null;
+                CameraActivityOld.bitmaps.clear();
+                CameraActivityOld.bitmapImg = null;
 
-                CameraActivity.resetaview = true;
+                CameraActivityOld.resetaview = true;
                 onBackPressed();
 
                 break;
 
             case R.id.btnMais:
-                CameraActivity.resetaview = false;
+                CameraActivityOld.resetaview = false;
                 onBackPressed();
                 break;
 
             case R.id.btnOk:
 
-                for (int i = 0; i < CameraActivity.bitmaps.size(); i++){
-                    saveImage(CameraActivity.bitmaps.get(i));
+                for (int i = 0; i < CameraActivityOld.bitmaps.size(); i++){
+                    saveImage(CameraActivityOld.bitmaps.get(i));
                 }
 
                 Toast.makeText(this, "Imagem salva!", Toast.LENGTH_SHORT).show();

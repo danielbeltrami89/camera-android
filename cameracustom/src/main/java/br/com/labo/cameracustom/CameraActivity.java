@@ -172,6 +172,15 @@ public class CameraActivity extends AppCompatActivity {
 
     }
 
+//    @Override
+//    protected void onDestroy() {
+//        super.onDestroy();
+//
+//        Intent returnIntent = new Intent();
+//        returnIntent.putExtra("arrayBitmap",bitmaps);
+//        setResult(1, returnIntent);
+//        finish();
+//    }
 }
 
 

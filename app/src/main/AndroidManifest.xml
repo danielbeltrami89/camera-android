@@ -12,14 +12,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PictureActivity"></activity>
-        <activity android:name=".CameraActivity">
+
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".PictureActivity" />
+
+        <activity android:name=".CameraActivityOld">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name="br.com.labo.cameracustom.CameraActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name="br.com.labo.cameracustom.PictureActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
